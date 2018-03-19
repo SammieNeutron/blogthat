@@ -53,7 +53,7 @@ return [
             'database' => $database, /*env('DB_DATABASE', 'forge'),*/
             'username' => $username, /*env('DB_USERNAME', 'forge'),*/
             'password' => $password, /*env('DB_PASSWORD', ''),*/
-            'unix_socket' => env('DB_SOCKET', ''),
+            'unix_socket' => env('UNIX_SOCKET', '/Applications/XAMPP/tmp/mysql/mysql.sock'),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
