@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
         // 	'password' => bcrypt('password')
         // ]);
 
-        // App\User::create([ 
-        // 	'name' => 'admin',
-        // 	'email' => 'admin@webcoupers.com',
-        // 	'password' => bcrypt('password')
-        // ]);
+        App\User::create([ 
+        	'name' => 'admin',
+        	'email' => 'admin@webcoupers.com',
+        	'password' => bcrypt('password')
+        ]);
     }
 }
