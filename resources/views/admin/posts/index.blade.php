@@ -21,6 +21,8 @@
 				
 				<tbody>
 					
+					@if($posts->count() > 0)
+
 					@forelse($posts as $post)
 					<tr>
 						<td>
@@ -42,6 +44,14 @@
 					@empty
 
 					@endforelse
+
+					@else
+
+						<tr>
+							<th class="text-center" colspan="5">No posts yet</th>
+						</tr>
+
+					@endif
 					
 				</tbody>
 				

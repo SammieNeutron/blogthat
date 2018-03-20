@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Post;
 use App\Category;
+use App\Tag;
 
 use Session;
 
@@ -32,6 +33,8 @@ class PostsController extends Controller
     {
         $categories = Category::all();
 
+        $tags = Tag::all();
+
         if($categories->count() == 0)
         {
 
@@ -39,7 +42,8 @@ class PostsController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.posts.create')->with('categories', $categories); //admin folder->posts folder->create.php
+        return view('admin.posts.create')->with('categories', $categories)
+                                        ->with('tags', $tags); //admin folder->posts folder->create.php
     }
 
     /**
@@ -64,13 +68,15 @@ class PostsController extends Controller
 
         $featured->move('uploads/posts', $featured_new_name);
 
-        $posts = Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'featured' => 'uploads/posts/'.$featured_new_name,
             'category_id' => $request->category_id,
             'slug' => str_slug($request->title) //eg laravel 5.3 ---> laravel-5-3
         ]);
+
+        $post->tags()->attach($request->tags); //attach method is available when we have our pivot table setup 
 
 
         Session::flash('success', 'Post created successfully');
@@ -100,7 +106,8 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
-        return view('admin.posts.edit')->with('post', $post)->with('categories', Category::all()); /*compact('post', Category::all())); //new method of sending data to view "COMPACT"*/
+        return view('admin.posts.edit')->with('post', $post)->with('categories', Category::all())
+            ->with('tags', Tag::all()); /*compact('post', Category::all())); //new method of sending data to view "COMPACT"*/
     }
 
     /**
@@ -128,7 +135,7 @@ class PostsController extends Controller
 
             $featured->move('uploads/posts', $featured_new_name);
 
-            $post->featured = 'uploads/posts'.$featured_new_name;
+            $post->featured = 'uploads/posts/'.$featured_new_name;
         }
 
         $post->title = $request->title;
@@ -138,6 +145,8 @@ class PostsController extends Controller
         $post->category_id = $request->category_id;
 
         $post->save();
+
+        $post->tags()->sync($request->tags);
 
         Session::flash('success', 'You updated successfully');
 
@@ -177,5 +186,16 @@ class PostsController extends Controller
         Session::flash('success', 'Post deleted permanently.');
 
         return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+
+        $post->restore();
+
+        Session::flash('success', "Post restored successfully");
+
+        return redirect()->route('posts');
     }
 }
