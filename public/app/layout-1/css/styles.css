@@ -1,4 +1,5 @@
 
+
 /*
 ====================================================
 
@@ -93,7 +94,7 @@ header{ font-weight: 400; }
 3. MENU
 --------------------------------- */
 
-header{ overflow: hidden; background: #fff; box-shadow: 0px 2px 10px rgba(0,0,0, .3); }
+header{ overflow: hidden; background-color: #fff; box-shadow: 0px 2px 10px rgba(0,0,0, .3); }
 
 header .logo{ float: left; height: 20px; margin: 20px 30px; }
 
@@ -139,7 +140,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 4. SLIDER
 --------------------------------- */
 
-.slider{ height: 300px; width: 100%; background-image: url(../../images/slider-1.jpg); background-size: cover; }  
+/*.slider{ height: 300px; width: 100%; background-image: url(../../images/slider-1.jpg); background-size: cover; }  */
  
 
  
@@ -176,7 +177,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 6. NORMAL BLOG
 --------------------------------- */
 
-.post-style-1 .blog-image{ max-height: 200px; overflow: hidden; }
+.post-style-1 .blog-image{ max-height: 300px; overflow: hidden; }
 
 
 

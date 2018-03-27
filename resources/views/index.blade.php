@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>TITLE</title>
+    <title>{{$title}}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -10,7 +10,6 @@
     <!-- Font -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
 
     <!-- Stylesheets -->
 
@@ -23,6 +22,47 @@
 
     <link href="{{ asset('app/layout-1/css/responsive.css') }}" rel="stylesheet">
 
+<!-- <style>
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #ddd}
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+</style> -->
+
 </head>
 <body >
 
@@ -34,23 +74,47 @@
         <div class="container">
 
             <div class="row">
-
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ asset('app/images/marion-michele-330691.jpg') }}" alt="Blog Image"></div>
+                            <div class="blog-image"><img src="{{ $first_post->featured }}" alt="{{$first_post->title}}"></div>
 
                             <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
 
-                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
-                                Concepts in Physics?</b></a></h4>
+                                <h4 class="title"><a href="#"><b>{{$first_post->title}}</b></a></h4>
 
                                 <ul class="post-footer">
-                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                    <li><a href="#"><i class="ion-calendar"></i>{{$first_post->created_at->diffForHumans()}}</a></li>
+                                    <li><a href="#"><i class="ion-pricetag"></i>{{$first_post->category->name}}</a></li>
                                     <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                </ul>
+
+                            </div><!-- blog-info -->
+                        </div><!-- single-post -->
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="{{ $second_post->featured }}" alt="{{$second_post->title}}"></div>
+
+                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+
+                            <div class="blog-info">
+
+                                <h4 class="title"><a href="#"><b>{{$second_post->title}}</b></a></h4>
+
+                                <ul class="post-footer">
+                                    <li><a href="#"><i class="ion-calendar"></i>{{$second_post->created_at->toFormattedDateString()}}</a></li>
+                                    <li><a href="#"><i class="ion-pricetag"></i>{{$second_post->category->name}}</a></li>
                                     <li><a href="#"><i class="ion-eye"></i>138</a></li>
                                 </ul>
 
@@ -63,17 +127,16 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ asset('app/images/audrey-jackson-260657.jpg') }}" alt="Blog Image"></div>
+                            <div class="blog-image"><img src="{{ $third_post->featured }}" alt="{{$third_post->title}}"></div>
 
                             <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
-                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
-                                    Concepts in Physics?</b></a></h4>
+                                <h4 class="title"><a href="#"><b>{{$third_post->title}}</b></a></h4>
 
                                 <ul class="post-footer">
-                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
-                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-calendar"></i>{{$third_post->created_at->toFormattedDateString()}}</a></li>
+                                    <li><a href="#"><i class="ion-pricetag"></i>{{$third_post->category->name}}</a></li>
                                     <li><a href="#"><i class="ion-eye"></i>138</a></li>
                                 </ul>
                             </div><!-- blog-info -->
@@ -339,61 +402,7 @@
     </section><!-- section -->
 
 
-    <footer>
-
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-section">
-
-                        <a class="logo" href="#"><img src="{{ asset('app/images/logo.png') }}" alt="Logo Image"></a>
-                        <p class="copyright">Bona @ 2017. All rights reserved.</p>
-                        <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-                        <ul class="icons">
-                            <li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
-                        </ul>
-
-                    </div><!-- footer-section -->
-                </div><!-- col-lg-4 col-md-6 -->
-
-                <div class="col-lg-4 col-md-6">
-                        <div class="footer-section">
-                        <h4 class="title"><b>CATAGORIES</b></h4>
-                        <ul>
-                            <li><a href="#">BEAUTY</a></li>
-                            <li><a href="#">HEALTH</a></li>
-                            <li><a href="#">MUSIC</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">SPORT</a></li>
-                            <li><a href="#">DESIGN</a></li>
-                            <li><a href="#">TRAVEL</a></li>
-                        </ul>
-                    </div><!-- footer-section -->
-                </div><!-- col-lg-4 col-md-6 -->
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-section">
-
-                        <h4 class="title"><b>SUBSCRIBE</b></h4>
-                        <div class="input-area">
-                            <form>
-                                <input class="email-input" type="text" placeholder="Enter your email">
-                                <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
-                            </form>
-                        </div>
-
-                    </div><!-- footer-section -->
-                </div><!-- col-lg-4 col-md-6 -->
-
-            </div><!-- row -->
-        </div><!-- container -->
-    </footer>
+    @include('includes.footer')
 
 
     <!-- SCIPTS -->
