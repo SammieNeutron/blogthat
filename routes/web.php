@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('/test', function() {
+	return App\Profile::find(1)->user;
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -132,6 +137,75 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('/tag/delete/{id}', [
 		'uses' => 'TagsController@destroy',
 		'as' => 'tag.delete'
+	]);
+
+	/*************************************/
+
+	Route::get('/users', [
+		'uses' => 'UsersController@index',
+		'as' => 'users'
+	]);
+
+	Route::get('/users/create', [
+		'uses' => 'UsersController@create',
+		'as' => 'user.create'
+	]);
+
+	Route::post('/users/store', [
+		'uses' => 'UsersController@store',
+		'as' => 'user.store'
+	]);
+
+	Route::get('/users/admin/{id}', [
+		'uses' => 'UsersController@admin',
+		'as' => 'user.admin'
+	]);
+
+	Route::get('/users/not-admin/{id}', [
+		'uses' => 'UsersController@not_admin',
+		'as' => 'user.not.admin'
+	]);
+
+	Route::get('/users/delete/{id}', [
+		'uses' => 'UsersController@destroy',
+		'as' => 'user.delete'
+	]);
+
+	Route::get('/users/trashed', [
+		'uses' => 'UsersController@trashed',
+		'as' => 'user.trashed'
+	]);
+
+	Route::get('/users/restore/{id}', [
+		'uses' => 'UsersController@restore',
+		'as' => 'user.restore'
+	]);
+
+	Route::get('/users/kill/{id}', [
+		'uses' => 'UsersController@kill',
+		'as' => 'user.kill'
+	]);
+
+	Route::get('/user/profile', [
+		'uses' => 'ProfilesController@index',
+		'as' => 'user.profile'
+	]);
+
+	Route::post('/user/profile/update', [
+		'uses' => 'ProfilesController@update',
+		'as' => 'user.profile.update'
+	]);
+
+	/****************************************/
+
+	Route::get('/settings', [
+		'uses' => 'SettingsController@index',
+		'as' => 'settings'
+	]);
+
+	Route::post('/settings/update', [
+		'uses' => 'SettingsController@update',
+		'as' => 'setting.update'
 	]);
 
 });

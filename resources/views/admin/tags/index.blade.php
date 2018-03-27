@@ -36,6 +36,7 @@
 						<td>
 							<a href="{{  route('tag.delete', ['id' => $tag->id])  }}" class="btn btn-xs btn-danger">Delete</a>
 						</td>
+						
 					</tr>
 					@endforeach
 

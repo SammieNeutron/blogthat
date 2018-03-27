@@ -14,7 +14,7 @@
 					
 					<th>Image</th>
 					<th>Title</th>
-					<th>Edit</th>
+					<!-- <th>Edit</th> -->
 					<th>Restore</th>
 					<th>Delete</th>
 										
@@ -30,9 +30,9 @@
 
 						<td>{{$post->title}}</td>
 
-						<td>
+						<!-- <td>
 							<a href="{{  route('post.edit', ['id' => $post->id])  }}" class="btn btn-xs btn-info">Edit</a>
-						</td>
+						</td> -->
 
 
 						<td>

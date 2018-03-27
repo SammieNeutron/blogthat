@@ -5,6 +5,9 @@
 	
 
 	<div class="panel panel-default">
+		<div class="panel-heading">
+			Published posts
+		</div>
 		
 		<div class="panel-body">
 			

@@ -11,6 +11,15 @@ class CreateTagsTable extends Migration
      *
      * @return void
      */
+    /*public function up()
+    {
+        Schema::create('tags', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('tag');
+            $table->timestamps();
+        });
+    }*/
+
     public function up()
     {
         Schema::create('tags', function (Blueprint $table) {
@@ -19,7 +28,7 @@ class CreateTagsTable extends Migration
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

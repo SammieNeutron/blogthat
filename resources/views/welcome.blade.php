@@ -1,95 +1,410 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>TITLE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
 
-        <title>Blog</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <!-- Font -->
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Stylesheets -->
 
-            .position-ref {
-                position: relative;
-            }
+    <link href="{{ asset('app/common-css/bootstrap.css') }}" rel="stylesheet">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <link href="{{ asset('app/common-css/ionicons.css') }}" rel="stylesheet">
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 54px;
-            }
+    <link href="{{ asset('app/layout-1/css/styles.css') }}" rel="stylesheet">
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+    <link href="{{ asset('app/layout-1/css/responsive.css') }}" rel="stylesheet">
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/admin/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+</head>
+<body >
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Welcome to Blogthat
-                </div>
+    @include('includes.header')
 
-                <!-- <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> -->
-            </div>
-        </div>
-    </body>
+    <div class="slider"></div><!-- slider -->
+
+    <section class="blog-area section">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="{{ asset('app/images/marion-michele-330691.jpg') }}" alt="Blog Image"></div>
+
+                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+
+                            <div class="blog-info">
+
+                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                Concepts in Physics?</b></a></h4>
+
+                                <ul class="post-footer">
+                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                                </ul>
+
+                            </div><!-- blog-info -->
+                        </div><!-- single-post -->
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="{{ asset('app/images/audrey-jackson-260657.jpg') }}" alt="Blog Image"></div>
+
+                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+
+                            <div class="blog-info">
+                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+
+                                <ul class="post-footer">
+                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                                </ul>
+                            </div><!-- blog-info -->
+
+                        </div><!-- single-post -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="{{ asset('app/images/pexels-photo-370474.jpeg') }}" alt="Blog Image"></div>
+
+                            <a class="avatar" href="#"><img src="{{ asset('app/images/averie-woodard-319832.jpg') }}" alt="Profile Image"></a>
+
+                            <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                Concepts in Physics?</b></a></h4>
+
+                            <ul class="post-footer">
+                                <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                            </ul>
+
+                        </div><!-- single-post -->
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-8 col-md-12">
+                    <div class="card h-100">
+                        <div class="single-post post-style-2">
+
+                            <div class="blog-image"><img src="{{ asset('app/images/brooke-lark-194251.jpg') }}" alt="Blog Image"></div>
+
+                            <div class="blog-info">
+
+                                <h6 class="pre-title"><a href="#"><b>HEALTH</b></a></h6>
+
+                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+                                <div class="avatar-area">
+                                    <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                                    <div class="right-area">
+                                        <a class="name" href="#"><b>Lora Plamer</b></a>
+                                        <h6 class="date" href="#">on Sep 29, 2017 at 9:48am</h6>
+                                    </div>
+                                </div>
+
+                                <ul class="post-footer">
+                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                                </ul>
+
+                            </div><!-- blog-right -->
+
+                        </div><!-- single-post extra-blog -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-8 col-md-12 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="{{ asset('app/images/dmitri-popov-326976.jpg') }}" alt="Blog Image"></div>
+
+                            <a class="avatar" href="#"><img src="{{ asset('app/images/averie-woodard-319832.jpg') }}" alt="Profile Image"></a>
+
+                            <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                Concepts in Physics?</b></a></h4>
+
+                            <ul class="post-footer">
+                                <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                            </ul>
+
+                        </div><!-- single-post -->
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+
+                        <div class="single-post post-style-2 post-style-3">
+
+                            <div class="blog-info">
+
+                                <h6 class="pre-title"><a href="#"><b>HEALTH</b></a></h6>
+
+                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+                                <div class="avatar-area">
+                                    <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                                    <div class="right-area">
+                                        <a class="name" href="#"><b>Lora Plamer</b></a>
+                                        <h6 class="date" href="#">on Sep 29, 2017 at 9:48am</h6>
+                                    </div>
+                                </div>
+
+                                <ul class="post-footer">
+                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                                </ul>
+
+                            </div><!-- blog-right -->
+
+                        </div><!-- single-post extra-blog -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="{{ asset('app/images/ben-o-sullivan-382817.jpg') }}" alt="Blog Image"></div>
+
+                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+
+                            <div class="blog-info">
+                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+
+                                <ul class="post-footer">
+                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                                </ul>
+                            </div><!-- blog-info -->
+
+                        </div><!-- single-post -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+
+                        <div class="single-post post-style-4">
+
+                            <div class="display-table">
+                                <h4 class="title display-table-cell"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+                            </div>
+
+                            <ul class="post-footer">
+                                <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                            </ul>
+
+                        </div><!-- single-post -->
+
+                        <div class="single-post">
+
+                            <div class="display-table">
+                                <h4 class="title display-table-cell"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+                            </div>
+
+                            <ul class="post-footer">
+                                <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                            </ul>
+
+                        </div><!-- single-post -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+
+                        <div class="single-post post-style-4">
+
+                            <div class="display-table">
+                                <h4 class="title display-table-cell"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+                            </div>
+
+                            <ul class="post-footer">
+                                <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                            </ul>
+
+                        </div><!-- single-post -->
+
+                        <div class="single-post">
+
+                            <div class="display-table">
+                                <h4 class="title display-table-cell"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+                            </div>
+
+                            <ul class="post-footer">
+                                <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                            </ul>
+
+                        </div><!-- single-post -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-8 col-md-12">
+                    <div class="card h-100">
+                        <div class="single-post post-style-2">
+
+                            <div class="blog-image"><img src="{{ asset('app/images/icons8-team-355990.jpg') }}" alt="Blog Image"></div>
+
+                            <div class="blog-info">
+
+                                <h6 class="pre-title"><a href="#"><b>HEALTH</b></a></h6>
+
+                                <h4 class="title"><a href="#"><b>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex
+                                    Concepts in Physics?</b></a></h4>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+                                <div class="avatar-area">
+                                    <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                                    <div class="right-area">
+                                        <a class="name" href="#"><b>Lora Plamer</b></a>
+                                        <h6 class="date" href="#">on Sep 29, 2017 at 9:48am</h6>
+                                    </div>
+                                </div>
+
+                                <ul class="post-footer">
+                                    <li><a href="#"><i class="ion-heart"></i>57</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-eye"></i>138</a></li>
+                                </ul>
+
+                            </div><!-- blog-right -->
+
+                        </div><!-- single-post extra-blog -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-8 col-md-12 -->
+
+            </div><!-- row -->
+
+            <a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
+
+        </div><!-- container -->
+    </section><!-- section -->
+
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+
+                        <a class="logo" href="#"><img src="{{ asset('app/images/logo.png') }}" alt="Logo Image"></a>
+                        <p class="copyright">Bona @ 2017. All rights reserved.</p>
+                        <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <ul class="icons">
+                            <li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+                        </ul>
+
+                    </div><!-- footer-section -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                        <div class="footer-section">
+                        <h4 class="title"><b>CATAGORIES</b></h4>
+                        <ul>
+                            <li><a href="#">BEAUTY</a></li>
+                            <li><a href="#">HEALTH</a></li>
+                            <li><a href="#">MUSIC</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">SPORT</a></li>
+                            <li><a href="#">DESIGN</a></li>
+                            <li><a href="#">TRAVEL</a></li>
+                        </ul>
+                    </div><!-- footer-section -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+
+                        <h4 class="title"><b>SUBSCRIBE</b></h4>
+                        <div class="input-area">
+                            <form>
+                                <input class="email-input" type="text" placeholder="Enter your email">
+                                <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
+                            </form>
+                        </div>
+
+                    </div><!-- footer-section -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+            </div><!-- row -->
+        </div><!-- container -->
+    </footer>
+
+
+    <!-- SCIPTS -->
+
+    <script src="{{ asset('app/common-js/jquery-3.1.1.min.js') }}"></script>
+
+    <script src="{{ asset('app/common-js/tether.min.js') }}"></script>
+
+    <script src="{{ asset('app/common-js/bootstrap.js') }}"></script>
+
+    <script src="{{ asset('app/common-js/scripts.js') }}"></script>
+
+</body>
 </html>
