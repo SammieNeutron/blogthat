@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>{{$title}}</title>
+    <title>{{$settings->site_name}}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -74,7 +74,12 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-12 col-md-12">
+
+                <div class="col-lg-2 col-md-2">
+                    
+                </div>
+
+                <div class="col-lg-8 col-md-8">
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
@@ -84,7 +89,7 @@
 
                             <div class="blog-info">
 
-                                <h4 class="title"><a href="#"><b>{{$first_post->title}}</b></a></h4>
+                                <h4 class="title"><a href="{{route('post.single', ['slug' => $first_post->slug])}}"><b>{{$first_post->title}}</b></a></h4>
 
                                 <ul class="post-footer">
                                     <li><a href="#"><i class="ion-calendar"></i>{{$first_post->created_at->diffForHumans()}}</a></li>
@@ -96,7 +101,13 @@
                         </div><!-- single-post -->
                     </div><!-- card -->
                 </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-2 col-md-2">
+                    
+                </div>
             </div>
+
+            <br>
 
             <div class="row">
 
@@ -110,7 +121,7 @@
 
                             <div class="blog-info">
 
-                                <h4 class="title"><a href="#"><b>{{$second_post->title}}</b></a></h4>
+                                <h4 class="title"><a href="{{route('post.single', ['slug' => $second_post->slug])}}"><b>{{$second_post->title}}</b></a></h4>
 
                                 <ul class="post-footer">
                                     <li><a href="#"><i class="ion-calendar"></i>{{$second_post->created_at->toFormattedDateString()}}</a></li>
@@ -132,7 +143,7 @@
                             <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
-                                <h4 class="title"><a href="#"><b>{{$third_post->title}}</b></a></h4>
+                                <h4 class="title"><a href="{{route('post.single', ['slug' => $third_post->slug])}}"><b>{{$third_post->title}}</b></a></h4>
 
                                 <ul class="post-footer">
                                     <li><a href="#"><i class="ion-calendar"></i>{{$third_post->created_at->toFormattedDateString()}}</a></li>

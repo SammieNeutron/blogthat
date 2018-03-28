@@ -69,7 +69,7 @@
 
                         <h4 class="title"><b>Contact Phone</b></h4>
                         
-                        <p style="font-size: 10px" class="copyright"><i class="icon ion-ios-telephone-outline">&nbsp;{{$settings->contact_number}}</i></p>
+                        <p style="font-size: 10px; font-family: ebrima" class="copyright"><i class="icon ion-ios-telephone-outline">&nbsp;{{$settings->contact_number}}</i></p>
                     </div><!-- footer-section -->
                 </div>
             
@@ -79,7 +79,7 @@
 
 	                        <h4 class="title"><b>Contact Email</b></h4>
 	                        
-	                        <p style="font-size: 10px" class="copyright"><i class="icon ion-ios-email-outline">&nbsp;{{$settings->contact_email}}</i></p>
+	                        <p style="font-size: 10px; font-family: ebrima" class="copyright"><i class="icon ion-ios-email-outline">&nbsp;{{$settings->contact_email}}</i></p>
 
 	                    </div><!-- footer-section -->
 	                
@@ -90,7 +90,7 @@
 
 	                        <h4 class="title"><b>Contact Address</b></h4>
 	                        
-	                        <p style="font-size: 10px" class="copyright"><i class="icon ion-ios-location-outline">&nbsp;{{$settings->address}}</i></p>
+	                        <p style="font-size: 10px; font-family: ebrima; text-decoration: none; " class="copyright"><i class="icon ion-ios-location-outline">&nbsp;{{$settings->address}}</i></p>
 	                    </div><!-- footer-section -->
 	                
             	</div>

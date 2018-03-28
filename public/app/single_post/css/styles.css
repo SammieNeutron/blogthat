@@ -255,6 +255,14 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 .comment-form .submit-btn:hover{ background: none; }
 
+/********************************************************************************/
+
+
+.nav-button .submit-btn{ font-size: .8em; border: 0; outline: 0; padding: 10px 20px; cursor: pointer; 
+	border: 1px solid #D2E2FC; background: #D2E2FC; }
+
+.nav-button .submit-btn:hover{ background: none; }
+
 
 
 /* COMMENTS */
