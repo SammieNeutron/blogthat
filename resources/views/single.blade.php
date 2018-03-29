@@ -52,7 +52,7 @@
 
 							<div class="post-icons-area">
 								<ul class="post-icons">
-									<li><a href="#"><i class="ion-heart"></i>57</a></li>
+									<li><a href="{{route('category.single', ['id' => $post->category->id])}}"><i class="ion-pricetag"></i>{{$post->category->name}}</a></li>
 									<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
 									<li><a href="#"><i class="ion-eye"></i>138</a></li>
 								</ul>
@@ -86,16 +86,16 @@
 		</div><!-- container -->
 	</section><!-- post-area -->
 
-	<div class="row nav-button">
+	<div class="row">
 		<div class="col-lg-2 col-md-0"></div>
 		<div class="col-lg-8">
 			<br>
 			@if($prev)
-			<a href="{{route('post.single', ['slug' => $prev->slug])}}" class="submit-btn" style="float: left;"><span><i class="ion-arrow-left-c"></i></span>&nbsp;Previous post</a>
+			<a href="{{route('post.single', ['slug' => $prev->slug])}}" class="load-more-btn" style="float: left;"><span><i class="ion-arrow-left-c"></i></span>&nbsp;Previous post</a>
 			@endif
 
 			@if($next)
-			<a href="{{route('post.single', ['slug' => $next->slug])}}" class="submit-btn" style="float: right;">Next post&nbsp;<span><i class="ion-arrow-right-c"></i></span></a>
+			<a href="{{route('post.single', ['slug' => $next->slug])}}" class="load-more-btn" style="float: right;">Next post&nbsp;<span><i class="ion-arrow-right-c"></i></span></a>
 			@endif
 		</div>
 	</div>

@@ -12,12 +12,23 @@ class FrontEndController extends Controller
 {
     public function index()
     {
+
+        $posts = Post::all();
+
+        $first_category = Category::orderBy('created_at', 'desc')->get()->first();
+
+        $second_category = Category::orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first();
+        
+
     	return view('index')
     			->with('title', Setting::first()->site_name)
     			->with('categories', Category::take(6)->get())
     			->with('first_post', Post::orderBy('created_at', 'desc')->first())
     			->with('second_post', Post::orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first())
     			->with('third_post', Post::orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first())
+                ->with('fourth_post', Post::orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first())
+                ->with('first_category', $first_category)
+                ->with('second_category', $second_category)
     			->with('settings', Setting::first());
     }
 
@@ -38,5 +49,25 @@ class FrontEndController extends Controller
     						 ->with('next', Post::find($next_id))
     						 ->with('prev', Post::find($prev_id))
     						 ->with('tags', Tag::all());
+    }
+
+
+    public function category($id)
+    {
+        $category = Category::find($id);
+
+        return view('category')->with('category', $category)
+                               ->with('title', $category->name)
+                               ->with('settings', Setting::first())
+                               ->with('categories', Category::take(6)->get());
+    }
+
+    public function all_categories()
+    {
+        $categories = Category::all();
+
+        return view('all_categories')->with('categories', $categories)
+                                     ->with('settings', Setting::first())
+                                     ->with('categories', Category::take(6)->get());
     }
 }

@@ -215,3 +215,14 @@ Route::get('/post/{slug}', [
 		'uses' => 'FrontEndController@single_post',
 		'as' => 'post.single'
 	]);
+
+
+Route::get('/category/{id}', [
+	'uses' => 'FrontEndController@category',
+	'as' => 'category.single'
+]);
+
+Route::get('/all-categories', [
+	'uses' => 'FrontEndController@all_categories',
+	'as' => 'category.all'
+]);

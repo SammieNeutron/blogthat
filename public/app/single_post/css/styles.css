@@ -113,7 +113,12 @@ header .main-menu > li:first-child > a{ border-left: 1px solid #eee; }
 
 header .visible.main-menu{ display: block; }
 
+/*LOAD MORE BUTTON */
 
+.load-more-btn{ border-radius: 50px; padding: 10px 20px; margin: 10px 0 30px; transition: all .3s; box-shadow: 0px 0px 2px rgba(0,0,0,.4);
+	background: #C3D8F5; }
+
+.load-more-btn:hover{ transform: translateY(-2px); box-shadow: 5px 10px 20px rgba(0,0,0,.3); } 
 
 /* SEARCH AREA */
 
@@ -176,7 +181,7 @@ header .src-area .src-btn{ position: absolute; top: 0; bottom: 0; left: 0; width
 
 .main-post ul.tags{ margin: 30px 0; }
 
-.main-post ul.tags > li > a{ padding: 7px 10px; margin-bottom: 10px; margin-right: 10px; float: left; 
+.main-post ul.tags > li > a{ border-radius: 5px; padding: 7px 10px; margin-bottom: 10px; margin-right: 10px; float: left; 
 	border: 1px solid #ddd; background: #ddd; }
 
 .main-post ul.tags > li > a:hover{ background: none; }
