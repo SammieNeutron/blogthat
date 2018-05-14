@@ -2,6 +2,14 @@
 
 return [
 
+    'providers' => array(
+        'JD\Cloudder\CloudderServiceProvider'
+    );
+
+    'aliases' => array(
+        'Cloudder' => 'JD\Cloudder\Facades\Cloudder'
+    );
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

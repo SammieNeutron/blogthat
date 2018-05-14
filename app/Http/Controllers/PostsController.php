@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use Auth;
 
 use Session;
 
@@ -68,12 +69,16 @@ class PostsController extends Controller
 
         $featured->move('uploads/posts', $featured_new_name);
 
+        // dd($request->Auth::id());
+        
         $post = Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'featured' => 'uploads/posts/'.$featured_new_name,
             'category_id' => $request->category_id,
-            'slug' => str_slug($request->title) //eg laravel 5.3 ---> laravel-5-3
+            'slug' => str_slug($request->title), //eg laravel 5.3 ---> laravel-5-3
+
+            'user_id' => $request->Auth::id()
         ]);
 
         $post->tags()->attach($request->tags); //attach method is available when we have our pivot table setup 

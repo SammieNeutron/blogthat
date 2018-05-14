@@ -26,12 +26,12 @@
 							<div class="post-info">
 
 								<div class="left-area">
-									<a class="avatar" href="#"><img src="{{asset('app/images/avatar-1-120x120.jpg')}}" alt="Profile Image"></a>
+									<a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar) }}" alt="Profile Image"></a>
 								</div>
 
 								<div class="middle-area">
-									<a class="name" href="#"><b>Katy Liu</b></a>
-									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
+									<a class="name" href="#"><b>{{$post->user->name}}</b></a>
+									<h6 class="date">{{$post->created_at->toFormattedDateString()}}</h6>
 								</div>
 
 							</div><!-- post-info -->
@@ -58,22 +58,31 @@
 								</ul>
 
 								<ul class="icons">
-									<li>SHARE : </li>
+									<div class="addthis_inline_share_toolbox"></div>
+									<!-- <li>SHARE : </li>
 									<li><a href="#"><i class="ion-social-facebook"></i></a></li>
 									<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-									<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
+									<li><a href="#"><i class="ion-social-instagram"></i></a></li> -->
 								</ul>
 							</div>
 
 							<div class="post-footer post-info">
 
 								<div class="left-area">
-									<a class="avatar" href="#"><img src="{{asset('app/images/avatar-1-120x120.jpg')}}" alt="Profile Image"></a>
+									<a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar) }}" alt="{{$post->user->name}}"></a>
 								</div>
 
 								<div class="middle-area">
-									<a class="name" href="#"><b>Katy Liu</b></a>
-									<h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
+									<a class="name" href="#"><b>{{$post->user->name}}</b></a>
+									<h6 class="date">{{$post->created_at->toFormattedDateString()}}</h6><br>
+									<p>{{$post->user->profile->about}}</p>
+
+								<ul class="iconic">
+									<!-- <li>SHARE : </li> -->
+									<li><a href="{{ $post->user->profile->facebook }}"><i class="ion-social-facebook"></i></a></li>
+									<li><a href="{{ $post->user->profile->youtube }}"><i class="ion-social-youtube"></i></a></li>
+									<li><a href="#"><i class="ion-social-instagram"></i></a></li>
+								</ul>
 								</div>
 
 							</div><!-- post-info -->
@@ -91,7 +100,7 @@
 		<div class="col-lg-8">
 			<br>
 			@if($prev)
-			<a href="{{route('post.single', ['slug' => $prev->slug])}}" class="load-more-btn" style="float: left;"><span><i class="ion-arrow-left-c"></i></span>&nbsp;Previous post</a>
+			<a href="{{route('post.single', ['slug' => $prev->slug])}}" class="load-more-btn" style="float: left;"><span><i class="ion-arrow-left-c"></i></span>&nbsp;Prev post</a>
 			@endif
 
 			@if($next)

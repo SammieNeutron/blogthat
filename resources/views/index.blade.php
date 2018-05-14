@@ -44,7 +44,7 @@
 
                             <div class="blog-image"><img src="{{ $first_post->featured }}" alt="{{$first_post->title}}"></div>
 
-                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{ asset($first_post->user->profile->avatar) }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
 
@@ -76,7 +76,7 @@
 
                             <div class="blog-image"><img src="{{ $second_post->featured }}" alt="{{$second_post->title}}"></div>
 
-                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{ asset($second_post->user->profile['avatar']) }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
 
@@ -99,7 +99,7 @@
 
                             <div class="blog-image"><img src="{{ $third_post->featured }}" alt="{{$third_post->title}}"></div>
 
-                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{ asset($third_post->user->profile->avatar) }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
                                 <h4 class="title"><a href="{{route('post.single', ['slug' => $third_post->slug])}}"><b>{{$third_post->title}}</b></a></h4>
@@ -122,7 +122,7 @@
 
                             <div class="blog-image"><img src="{{ $fourth_post->featured }}" alt="{{$fourth_post->title}}"></div>
 
-                            <a class="avatar" href="#"><img src="{{ asset('app/images/averie-woodard-319832.jpg') }}" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{ asset($fourth_post->user->profile->avatar) }}" alt="Profile Image"></a>
 
                             <h4 class="title"><a href="#"><b>{{$fourth_post->title}}</b></a></h4>
 
@@ -155,7 +155,7 @@
 
                             <div class="blog-image"><img src="{{ $post->featured }}" alt="{{$post->title}}"></div>
 
-                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar) }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
 
@@ -195,7 +195,7 @@
 
                             <div class="blog-image"><img src="{{ $post->featured }}" alt="{{$post->title}}"></div>
 
-                            <a class="avatar" href="#"><img src="{{ asset('app/images/icons8-team-355979.jpg') }}" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{ asset($post->user->profile['avatar']) }}" alt="Profile Image"></a>
 
                             <div class="blog-info">
 

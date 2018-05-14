@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/test', function() {
-	return App\Profile::find(1)->user;
-});
-
-
 Route::get('/', [
 	'uses' => 'FrontEndController@index',
 	'as' => 'index'
@@ -25,9 +20,9 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
-	Route::get('/home', [
+	Route::get('/dashboard', [
 		'uses' => 'HomeController@index',
-		'as' => 'home'
+		'as' => 'dashboard'
 	]);
 
 	Route::get('/categories', [
@@ -226,3 +221,13 @@ Route::get('/all-categories', [
 	'uses' => 'FrontEndController@all_categories',
 	'as' => 'category.all'
 ]);
+
+Route::get('/results', function() {
+	$posts = \App\Post::where('title', 'like', '%'. request('query') .'%')->get();
+
+	return view('results')->with('posts', $posts)
+						  ->with('title', 'Search results: '. request('query'))
+    					  ->with('categories', \App\Category::take(6)->get())
+    					  ->with('settings', \App\Setting::first())
+    					  ->with('query', request('query'));
+});

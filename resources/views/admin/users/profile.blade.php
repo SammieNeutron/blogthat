@@ -42,17 +42,17 @@
 
 				<div class="form-group">
 					<label for="facebook">Facebook profile</label>
-					<input type="url" class="form-control" name="facebook">
+					<input value="{{$user->profile->facebook}}" type="url" class="form-control" name="facebook">
 				</div>
 
 				<div class="form-group">
 					<label for="avatar">Youtube profile</label>
-					<input type="url" class="form-control" name="youtube">
+					<input value="{{$user->profile->youtube}}" type="url" class="form-control" name="youtube">
 				</div>
 
 				<div class="form-group">
 					<label for="about">About you</label>
-					<textarea name="about" id="content" cols="5" rows="5" class="form-control"></textarea>
+					<textarea name="about" cols="5" rows="5" class="form-control" value="">{{$user->profile->about}}</textarea>
 				</div>
 
 				<div class="form-group">

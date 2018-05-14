@@ -85,7 +85,7 @@
                     
                         <ul class="list-group">
                             
-                            <li class="list-group-item"><a href="{{route('home')}}">Home</a>
+                            <li class="list-group-item"><a href="{{route('dashboard')}}">Home</a>
                             </li>
 
                             <li class="list-group-item"><a href="{{route('categories')}}">Categories</a>
