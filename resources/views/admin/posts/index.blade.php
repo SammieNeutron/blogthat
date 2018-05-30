@@ -29,7 +29,7 @@
 						@forelse($posts as $post)
 						<tr>
 							<td>
-								<img src="{{$post->featured}}" style="width:90px; height: 50px;" alt="{{$post->title}}">
+								<img src="{{$post->featured_url}}" style="width:90px; height: 50px;" alt="{{$post->title}}">
 							</td>
 
 							<td>{{$post->title}}</td>

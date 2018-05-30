@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Http\Request;
 
 use App\Post;
@@ -63,31 +64,71 @@ class PostsController extends Controller
             'category_id' => 'required',
         ]);
 
+        //$featured = $request->featured;
+
         $featured = $request->featured;
 
         $featured_new_name = time().$featured->getClientOriginalName(); //gets the current time a user uploads an image & gets image's original name for uniqueness
 
+        Cloudder::upload($featured, null);
+
+        list($width, $height) = getimagesize($featured);
+
+        $featured_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height]);
+
         $featured->move('uploads/posts', $featured_new_name);
+
+        $this->saveImages($request, $featured_url);
 
         // dd($request->Auth::id());
         
-        $post = Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'featured' => 'uploads/posts/'.$featured_new_name,
-            'category_id' => $request->category_id,
-            'slug' => str_slug($request->title), //eg laravel 5.3 ---> laravel-5-3
-            'user_id' => Auth::id(),
-            'username' => Auth::user()->name
-        ]);
+        // $post = Post::create([
+        //     'title' => $request->title,
+        //     'content' => $request->content,
+        //     'featured' => 'uploads/posts/'.$featured_new_name,
+        //     'category_id' => $request->category_id,
+        //     'slug' => str_slug($request->title), //eg laravel 5.3 ---> laravel-5-3
+        //     'user_id' => Auth::id(),
+        //     'username' => Auth::user()->name,
+        //     'featured_url' => $featured_url
+        // ]);
 
-        $post->tags()->attach($request->tags); //attach method is available when we have our pivot table setup 
+        // $post->tags()->attach($request->tags); //attach method is available when we have our pivot table setup 
 
 
         Session::flash('success', 'Post created successfully');
 
         return redirect()->back();
 
+    }
+
+    public function saveImages(Request $request, $featured_url)
+    {
+        $featured = $request->featured;
+        
+        $featured_new_name = time().$featured->getClientOriginalName(); //gets the current time a user uploads an image & gets image's original name for uniqueness
+
+        $featured = new Post();
+
+        $featured->title = $request->title;
+
+        $featured->slug = str_slug($request->title);
+
+        $featured->content = $request->content;
+
+        $featured->category_id = $request->category_id;
+
+        $featured->username = Auth::user()->name;
+
+        $featured->user_id = Auth::id();
+
+        $featured->featured = 'uploads/posts/'.$featured_new_name;
+
+        $featured->featured_url = $featured_url;
+
+        // dd($featured);
+
+        $featured->save();
     }
 
     /**

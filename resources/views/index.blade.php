@@ -42,7 +42,7 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ $first_post->featured }}" alt="{{$first_post->title}}"></div>
+                            <div class="blog-image"><img src="{{ $first_post->featured_url }}" alt="{{$first_post->title}}"></div>
 
 
 
@@ -76,7 +76,7 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ $second_post->featured }}" alt="{{$second_post->title}}"></div>
+                            <div class="blog-image"><img src="{{ $second_post->featured_url }}" alt="{{$second_post->title}}"></div>
 
                            <a class="avatar" href="#"><img src="{{ asset($second_post->user->profile->avatar) }}" alt="Profile Image"></a>
 
@@ -99,7 +99,7 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ $third_post->featured }}" alt="{{$third_post->title}}"></div>
+                            <div class="blog-image"><img src="{{ $third_post->featured_url }}" alt="{{$third_post->title}}"></div>
 
                           <a class="avatar" href="#"><img src="{{ asset($third_post->user->profile->avatar) }}" alt="Profile Image"></a>
 
@@ -122,7 +122,7 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ $fourth_post->featured }}" alt="{{$fourth_post->title}}"></div>
+                            <div class="blog-image"><img src="{{ $fourth_post->featured_url }}" alt="{{$fourth_post->title}}"></div>
 
                           <a class="avatar" href="#"><img src="{{ asset($fourth_post->user->profile->avatar) }}" alt="Profile Image"></a>
 
@@ -155,7 +155,7 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ $post->featured }}" alt="{{$post->title}}"></div>
+                            <div class="blog-image"><img src="{{ $post->featured_url }}" alt="{{$post->title}}"></div>
 
                         
 
@@ -195,7 +195,7 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{ $post->featured }}" alt="{{$post->title}}"></div>
+                            <div class="blog-image"><img src="{{ $post->featured_url }}" alt="{{$post->title}}"></div>
 
                            
 
