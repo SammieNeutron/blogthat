@@ -14,6 +14,7 @@ class InsertUserIdColumn extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
+            $table->string('username');
             $table->integer('user_id');
         });
     }

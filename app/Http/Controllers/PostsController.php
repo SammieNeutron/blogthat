@@ -77,8 +77,8 @@ class PostsController extends Controller
             'featured' => 'uploads/posts/'.$featured_new_name,
             'category_id' => $request->category_id,
             'slug' => str_slug($request->title), //eg laravel 5.3 ---> laravel-5-3
-
-            'user_id' => $request->Auth::id()
+            'user_id' => Auth::id(),
+            'username' => Auth::user()->name
         ]);
 
         $post->tags()->attach($request->tags); //attach method is available when we have our pivot table setup 

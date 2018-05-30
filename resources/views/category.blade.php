@@ -20,7 +20,7 @@
 
 							<div class="blog-image"><img src="{{$post->featured}}" alt="{{$post->title}}"></div>
 
-							<a class="avatar" href="#"><img src="{{asset('app/images/icons8-team-355979.jpg')}}" alt="Profile Image"></a>
+							<a class="avatar" href="#"><img src="{{asset($post->user->profile->avatar)}}" alt="Profile Image"></a>
 
 							<div class="blog-info">
 
