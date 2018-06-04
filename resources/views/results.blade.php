@@ -1,7 +1,12 @@
-@extends('layouts.frontend')
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>{{$query}} - {{$settings->site_name}}</title>
+
+	@extends('layouts.frontend')
 
 
-@section('content')
+	@section('content')
 
 	<div class="slider display-table center-text">
 		<h1 class="title display-table-cell"><b>Search results: {{$query}}</b></h1>
@@ -19,7 +24,7 @@
 						<div class="card h-100">
 							<div class="single-post post-style-1">
 
-								<div class="blog-image"><img src="{{$post->featured}}" alt="{{$post->title}}"></div>
+								<div class="blog-image"><img src="{{$post->featured_url}}" alt="{{$post->title}}"></div>
 
 								<a class="avatar" href="#"><img src="{{asset('app/images/icons8-team-355979.jpg')}}" alt="Profile Image"></a>
 

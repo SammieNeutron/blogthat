@@ -17,8 +17,15 @@ class FrontEndController extends Controller
 
         $first_category = Category::orderBy('created_at', 'desc')->get()->first();
 
-        $second_category = Category::orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first();
         
+
+        $second_category = Category::orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first();
+
+        // $categories = Category::inRandomOrder()->first();
+
+        // dd($categories);
+        
+        // dd($second_category);
 
     	return view('index')
     			->with('title', Setting::first()->site_name)
@@ -70,4 +77,10 @@ class FrontEndController extends Controller
                                      ->with('settings', Setting::first())
                                      ->with('categories', Category::take(6)->get());
     }
+
+    // public function posts_by_user($username)
+    // {
+
+    //     return view('posts_by_user')->with('')
+    // }
 }

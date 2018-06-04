@@ -1,7 +1,12 @@
-@extends('layouts.frontend')
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>All Categories - {{$settings->site_name}}</title>
+    
+	@extends('layouts.frontend')
 
 
-@section('content')
+	@section('content')
 
 	<div class="main-slider">
 		<div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"

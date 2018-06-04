@@ -46,7 +46,7 @@
 
 
 
-                            <a class="avatar" href="#"><img src="{{ asset($first_post->user->profile->avatar) }}" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img src="{{ asset($first_post->user->profile->avatar_url) }}" alt="{{ $first_post->user->name }}"></a>
 
                             <div class="blog-info">
 
@@ -78,7 +78,7 @@
 
                             <div class="blog-image"><img src="{{ $second_post->featured_url }}" alt="{{$second_post->title}}"></div>
 
-                           <a class="avatar" href="#"><img src="{{ asset($second_post->user->profile->avatar) }}" alt="Profile Image"></a>
+                           <a class="avatar" href="#"><img src="{{ asset($second_post->user->profile->avatar_url) }}" alt="{{ $second_post->user->name }}"></a>
 
                             <div class="blog-info">
 
@@ -101,7 +101,7 @@
 
                             <div class="blog-image"><img src="{{ $third_post->featured_url }}" alt="{{$third_post->title}}"></div>
 
-                          <a class="avatar" href="#"><img src="{{ asset($third_post->user->profile->avatar) }}" alt="Profile Image"></a>
+                          <a class="avatar" href="#"><img src="{{ asset($third_post->user->profile->avatar_url) }}" alt="{{ $third_post->user->name }}"></a>
 
                             <div class="blog-info">
                                 <h4 class="title"><a href="{{route('post.single', ['slug' => $third_post->slug])}}"><b>{{$third_post->title}}</b></a></h4>
@@ -124,9 +124,9 @@
 
                             <div class="blog-image"><img src="{{ $fourth_post->featured_url }}" alt="{{$fourth_post->title}}"></div>
 
-                          <a class="avatar" href="#"><img src="{{ asset($fourth_post->user->profile->avatar) }}" alt="Profile Image"></a>
+                          <a class="avatar" href="#"><img src="{{ asset($fourth_post->user->profile->avatar_url) }}" alt="{{ $fourth_post->user->name }}"></a>
 
-                            <h4 class="title"><a href="#"><b>{{$fourth_post->title}}</b></a></h4>
+                            <h4 class="title"><a href="{{ route('post.single', ['slug' => $fourth_post->slug]) }}"><b>{{$fourth_post->title}}</b></a></h4>
 
                             <ul class="post-footer">
                                 <li><a href="#"><i class="ion-calendar"></i>{{$fourth_post->created_at->toFormattedDateString()}}</a></li>
@@ -157,7 +157,7 @@
 
                             <div class="blog-image"><img src="{{ $post->featured_url }}" alt="{{$post->title}}"></div>
 
-                        
+                            <a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar_url) }}" alt="{{ $post->user->name }}"></a>
 
                             <div class="blog-info">
 
@@ -198,6 +198,7 @@
                             <div class="blog-image"><img src="{{ $post->featured_url }}" alt="{{$post->title}}"></div>
 
                            
+                            <a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar_url) }}" alt="{{ $post->user->name }}"></a>
 
                             <div class="blog-info">
 

@@ -16,6 +16,38 @@ Route::get('/', [
 	'as' => 'index'
 ]);
 
+Route::get('/post/{slug}', [
+		'uses' => 'FrontEndController@single_post',
+		'as' => 'post.single'
+	]);
+
+
+Route::get('/category/{id}', [
+	'uses' => 'FrontEndController@category',
+	'as' => 'category.single'
+]);
+
+Route::get('/all-categories', [
+	'uses' => 'FrontEndController@all_categories',
+	'as' => 'category.all'
+]);
+
+Route::get('/results', function() {
+	$posts = \App\Post::where('title', 'like', '%'. request('query') .'%')->get();
+
+	return view('results')->with('posts', $posts)
+						  ->with('title', 'Search results: '. request('query'))
+    					  ->with('categories', \App\Category::take(6)->get())
+    					  ->with('settings', \App\Setting::first())
+    					  ->with('query', request('query'));
+});
+
+// Route::get('/posts_by_user/{username}', [
+// 	'uses' => 'FrontEndController@posts_by_user',
+// 	'as' => 'user.posts'
+// ]);
+
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
@@ -206,28 +238,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 });
 
-Route::get('/post/{slug}', [
-		'uses' => 'FrontEndController@single_post',
-		'as' => 'post.single'
-	]);
-
-
-Route::get('/category/{id}', [
-	'uses' => 'FrontEndController@category',
-	'as' => 'category.single'
-]);
-
-Route::get('/all-categories', [
-	'uses' => 'FrontEndController@all_categories',
-	'as' => 'category.all'
-]);
-
-Route::get('/results', function() {
-	$posts = \App\Post::where('title', 'like', '%'. request('query') .'%')->get();
-
-	return view('results')->with('posts', $posts)
-						  ->with('title', 'Search results: '. request('query'))
-    					  ->with('categories', \App\Category::take(6)->get())
-    					  ->with('settings', \App\Setting::first())
-    					  ->with('query', request('query'));
-});

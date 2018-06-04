@@ -21,10 +21,11 @@ class UsersTableSeeder extends Seeder
 
         App\Profile::create([
             'user_id' => $user->id,
-            'avatar' => 'uploads/avatars/1.png',
+            'avatar' => 'uploads/posts/1.png',
             'about' => 'iddis hfi hdoifhsdhfd psdhf puhsducfgduh sdhduspi',
             'facebook' => 'facebook.com',
             'youtube' => 'youtube.com'
+            'avatar_url' => 'http://res.cloudinary.com/webcoupers/image/upload/v1527712446/1.png'
         ]); 
 
     }

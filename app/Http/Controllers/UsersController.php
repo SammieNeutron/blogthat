@@ -58,7 +58,11 @@ class UsersController extends Controller
 
         $profile = Profile::create([
             'user_id' => $user->id,
-            'avatar' => 'uploads/avatars/1.png'
+            'avatar' => 'uploads/avatars/1.png',
+            'avatar_url' => 'http://res.cloudinary.com/webcoupers/image/upload/v1527712446/1.png',
+            'facebook' => 'http://facebook/',
+            'youtube' => 'http://youtube/',
+            'about' => 'Write a short note about you here ...'
         ]);
 
         Session::flash('success', 'User added successfully.');
@@ -110,7 +114,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        $user->profile->delete();
+        // $user->profile->delete();
 
         $user->delete();
 
@@ -148,6 +152,8 @@ class UsersController extends Controller
     public function restore($id)
     {
         $user = User::withTrashed()->where('id', $id)->first();
+
+        // $user->profile->restore();
 
         $user->restore();
 

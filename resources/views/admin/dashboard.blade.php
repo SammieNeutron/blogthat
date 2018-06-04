@@ -49,12 +49,23 @@
             </div>
 
             <div class="col-lg-3">
-                <div class="panel panel-info">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         TRASHED USERS
                     </div>
                     <div class="panel-body">
                         {{ $trashed_users }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        TAGS
+                    </div>
+                    <div class="panel-body">
+                        {{ $tags_count }}
                     </div>
                 </div>
             </div>

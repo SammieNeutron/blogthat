@@ -76,9 +76,10 @@ class PostsController extends Controller
 
         $featured_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height]);
 
-        $featured->move('uploads/posts', $featured_new_name);
+        // $featured->move('uploads/posts', $featured_new_name);
 
-        $this->saveImages($request, $featured_url);
+        $this->savePost($request, $featured_url);
+
 
         // dd($request->Auth::id());
         
@@ -93,8 +94,6 @@ class PostsController extends Controller
         //     'featured_url' => $featured_url
         // ]);
 
-        // $post->tags()->attach($request->tags); //attach method is available when we have our pivot table setup 
-
 
         Session::flash('success', 'Post created successfully');
 
@@ -102,33 +101,37 @@ class PostsController extends Controller
 
     }
 
-    public function saveImages(Request $request, $featured_url)
+    public function savePost(Request $request, $featured_url)
     {
         $featured = $request->featured;
-        
+
         $featured_new_name = time().$featured->getClientOriginalName(); //gets the current time a user uploads an image & gets image's original name for uniqueness
 
-        $featured = new Post();
+        $post = new Post();
 
-        $featured->title = $request->title;
+        $post->title = $request->title;
 
-        $featured->slug = str_slug($request->title);
+        $post->slug = str_slug($request->title);
 
-        $featured->content = $request->content;
+        $post->content = $request->content;
 
-        $featured->category_id = $request->category_id;
+        $post->category_id = $request->category_id;
 
-        $featured->username = Auth::user()->name;
+        $post->username = Auth::user()->name;
 
-        $featured->user_id = Auth::id();
+        $post->user_id = Auth::id();
 
-        $featured->featured = 'uploads/posts/'.$featured_new_name;
+        $post->featured = 'uploads/posts/'.$featured_new_name;
 
-        $featured->featured_url = $featured_url;
+        $post->featured_url = $featured_url; 
 
-        // dd($featured);
+        // dd($post->tags()->attach($tag_id, array('' => $request->tags)));
 
-        $featured->save();
+        $post->tags()->attach($request->tags); //attach method is available when we have our pivot table setup
+
+        $post->save();
+
+        
     }
 
     /**

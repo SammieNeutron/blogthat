@@ -1,7 +1,12 @@
-@extends('layouts.frontend')
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>{{$post->title}} - {{$settings->site_name}}</title>
+    
+	@extends('layouts.frontend')
 
 
-@section('content')
+	@section('content')
 
 	<div class="slider">
 
@@ -26,7 +31,7 @@
 							<div class="post-info">
 
 								<div class="left-area">
-									<a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar) }}" alt="Profile Image"></a>
+									<a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar_url) }}" alt="Profile Image"></a>
 								</div>
 
 								<div class="middle-area">
@@ -36,7 +41,7 @@
 
 							</div><!-- post-info -->
 
-							<div class="post-image"><img src="{{$post->featured}}" alt="Blog Image"></div>
+							<div class="post-image"><img src="{{$post->featured_url}}" alt="Blog Image"></div>
 
 							<p class="para">{!! $post->content !!}</p>
 
@@ -69,7 +74,7 @@
 							<div class="post-footer post-info">
 
 								<div class="left-area">
-									<a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar) }}" alt="{{$post->user->name}}"></a>
+									<a class="avatar" href="#"><img src="{{ asset($post->user->profile->avatar_url) }}" alt="{{$post->user->name}}"></a>
 								</div>
 
 								<div class="middle-area">
@@ -126,7 +131,7 @@
 			</div><!-- row -->
 
 			<br>
-			<h4><b>All Blog tags</b></h4>
+			<h4><b>All Post tags</b></h4>
 			<div class="comment-form main-post">
 				<ul class="tags">
 					@foreach($post->tags as $tag)

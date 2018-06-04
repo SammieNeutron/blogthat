@@ -29,7 +29,7 @@ class Post extends Model
 
 	public function tags()
 	{
-		return $this->belongsToMany('App\Tag');
+		return $this->belongsToMany('App\Tag')->withTimestamps();
 	} //many to many relationship ->>> this post belongs to many tags
 
 	public function user()

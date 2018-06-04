@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Http\Request;
 
 use Auth;
 use Session;
+
+use App\Profile;
 
 class ProfilesController extends Controller
 {
@@ -81,21 +84,61 @@ class ProfilesController extends Controller
             
         ]);
 
-        $user = Auth::user();
-
         if($request->hasFile('avatar'))
         {
             $avatar = $request->avatar;
 
             $avatar_new_name = time().$avatar->getClientOriginalName();
 
-            $avatar->move('uploads/avatars', $avatar_new_name);
+            Cloudder::upload($avatar, null);
 
-            $user->profile['avatar'] = 'uploads/avatars/'.$avatar_new_name;
+            list($width, $height) = getimagesize($avatar);
 
-            $user->profile->save();
+            $avatar_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height]);
+
+            $this->saveProfile($request, $avatar_url);
+
+            // $avatar->move('uploads/avatars', $avatar_new_name);
         }
 
+
+        // $user->name = $request->name;
+
+        // $user->email = $request->email;
+
+        // $user->profile->facebook = $request->facebook;
+
+        // $user->profile->youtube = $request->youtube;
+        
+        // $user->profile->about = $request->about;
+
+        // $user->save();
+
+        // $user->profile->save();
+
+        $user = Auth::user();
+
+        if($request->has('password'))
+        {
+            $user->password = bcrypt($request->password);
+        }
+
+
+        Session::flash('success', 'Account profile updated successfully.');
+
+        return redirect()->back();
+    }
+
+    public function saveProfile(Request $request, $avatar_url)
+    {
+
+        $user = Auth::user(); //gets the authenticated user
+
+        $avatar = $request->avatar;
+
+        $avatar_new_name = time().$avatar->getClientOriginalName();
+
+        $profile = new Profile();
 
         $user->name = $request->name;
 
@@ -107,20 +150,17 @@ class ProfilesController extends Controller
         
         $user->profile->about = $request->about;
 
+        $user->profile['avatar'] = 'uploads/avatars/'.$avatar_new_name;
+
+        $user->profile->avatar_url = $avatar_url;
+
         $user->save();
 
         $user->profile->save();
 
+        
 
-        if($request->has('password'))
-        {
-            $user->password = bcrypt($request->password);
-        }
-
-
-        Session::flash('success', 'Account profile updated successfully.');
-
-        return redirect()->back();
+        // $user->profile->save();
     }
 
     /**

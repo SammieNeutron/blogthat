@@ -29,7 +29,7 @@
 					@forelse($users as $user)
 					<tr>
 						<td>
-							<img src="{{  asset($user->profile['avatar'])  }}" width="60px" height="60px" style="border-radius: 50%" alt="{{$user->name}}">
+							<img src="{{  asset($user->profile['avatar_url'])  }}" width="60px" height="60px" style="border-radius: 50%" alt="{{$user->name}}">
 						</td>
 
 						<td>{{$user->name}}</td>
@@ -37,7 +37,7 @@
 						<td>
 							<a href="{{  route('user.restore', ['id' => $user->id])  }}" class="btn btn-xs btn-success">Restore</a>
 						</td>
-
+						
 
 						<td>
 							<a href="{{  route('user.kill', ['id' => $user->id])  }}" class="btn btn-xs btn-danger">Destroy</a>
